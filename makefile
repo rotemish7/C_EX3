@@ -1,23 +1,18 @@
-CC = gcc
-AR = ar
-OBJECTS_ISORT_MAIN = isort.o
-OBJECTS_TXTFIND_MAIN = txtfind.o
-FLAGS = -Wall -g
+CC=gcc
+FLAGS= -Wall -g
+OBJECTS_MAIN_ISORT= isort.o
+OBJECTS_MAIN_TXTFIND=txtfind.o
 
-all: isort txtfind	
+all: isort txtfind
 
-isort: $(OBJECTS_ISORT_MAIN) 
-	$(CC) $(FLAGS) -o isort $(OBJECTS_ISORT_MAIN)
-	
-txtfind: $(OBJECTS_MAIN)
-	$(CC) $(FLAGS)  -o txtfind $(OBJECTS_TXTFIND_MAINMAIN)
-	
-isort.o: 	isort.c
-	$(CC) $(FLAGS)  -o isort.c
-	
-txtfind.o: txtfind.c	
-	$(CC) $(FLAGS)  -o txtfind.c
+isort: isort.c
+	$(CC) $(FLAGS) isort.c -o isort
+
+txtfind: txtfind.c 
+	$(CC) $(FLAGS) txtfind.c -o txtfind
+
+
 .PHONY: clean all
 
 clean:
-	rm -f *.o *.a *.so isort txtfind
+	rm -f isort txtfind
